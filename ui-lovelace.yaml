@@ -71,7 +71,7 @@ views:
         show_name: true
         tap_action:
           action: toggle
-        type: entity-button
+        type: button
       - entity: switch.tasmota2
         hold_action:
           action: more-info
@@ -80,7 +80,7 @@ views:
         show_name: true
         tap_action:
           action: toggle
-        type: entity-button
+        type: button
     path: schakelaars
     title: Schakelaars
   - badges: []
