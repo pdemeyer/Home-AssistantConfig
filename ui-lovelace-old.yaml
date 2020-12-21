@@ -1,0 +1,190 @@
+#resources:
+#  - url: /hacsfiles/power-wheel-card/power-wheel-card.js
+#  type: module
+
+title: Huis
+views:
+  - badges:
+      - entity: sensor.thermo_living_am2301_temperature
+      - entity: sensor.thermo_living_am2301_humidity
+      - entity: sun.sun
+      - entity: sensor.voltage_l1
+      - entity: sensor.voltage_l2
+      - entity: sensor.voltage_l3
+      - entity: sensor.power_delivered
+      - entity: sensor.power_returned
+      - entity: sensor.badkamer_beneden_temperature
+    cards:
+      - entity: switch.keuken_lamp_aanrecht
+        hold_action:
+          action: more-info
+        name: Aanrecht keuken
+        show_icon: true
+        show_name: true
+        tap_action:
+          action: toggle
+        type: button
+      - entity: switch.sonoff04
+        hold_action:
+          action: more-info
+        name: Staande lamp living
+        show_icon: true
+        show_name: true
+        tap_action:
+          action: toggle
+        type: button
+      - entity: switch.sonoff05
+        hold_action:
+          action: more-info
+        name: lampjes veranda
+        show_icon: true
+        show_name: true
+        tap_action:
+          action: toggle
+        type: button
+      - entity: light.lamp_gang
+        hold_action:
+          action: more-info
+        name: Buitenverlichting vooraan
+        show_icon: true
+        show_name: true
+        tap_action:
+          action: toggle
+        type: button
+      - entity: switch.slinger_buiten_slinger_buiten
+        hold_action:
+          action: more-info
+        name: Slinger buiten
+        show_icon: true
+        show_name: true
+        tap_action:
+          action: toggle
+        type: button
+      - entity: switch.tasmota
+        hold_action:
+          action: more-info
+        name: Slinger boom
+        show_icon: true
+        show_name: true
+        tap_action:
+          action: toggle
+        type: button
+      - entity: switch.tasmota2
+        hold_action:
+          action: more-info
+        name: Kerstboom buiten
+        show_icon: true
+        show_name: true
+        tap_action:
+          action: toggle
+        type: button
+    path: schakelaars
+    title: Schakelaars
+  - badges: []
+    cards:
+      - entities:
+          - entity: scene.buitenverlichting_vooraan_uit
+          - entity: scene.buitenverlichting_vooraan_aan
+        title: Scenes
+        type: entities
+      - entities:
+          - entity: switch.sonoff04
+          - entity: switch.sonoff05
+          - entity: switch.keuken_lamp_aanrecht
+          - entity: light.lamp_gang
+          - entity: switch.tasmota
+          - entity: switch.tasmota2
+        title: Switch
+        type: entities
+      - entity: weather.huis
+        type: weather-forecast
+      - entities:
+          - entity: sensor.thermo_living_am2301_temperature
+          - entity: sensor.thermo_living_am2301_humidity
+        hours_to_show: 72
+        refresh_interval: 0
+        title: Livingthermometer
+        type: history-graph
+    panel: false
+    path: default_view
+    title: Thuis
+  - type: vertical-stack
+    cards:
+      - type: vertical-stack
+        cards:
+          - entities:
+              - entity: sensor.power_delivered
+              - entity: sensor.power_returned
+              - entity: sensor.gas_delivered_non_temp_converted
+              - entity: sensor.solaredge_current_power_kw
+            hours_to_show: 24
+            refresh_interval: 0
+            title: delivered <> returned
+            type: history-graph
+          - entities:
+              - entity: sensor.voltage_l1
+              - entity: sensor.voltage_l2
+              - entity: sensor.voltage_l3
+            hours_to_show: 24
+            refresh_interval: 0
+            title: Voltages
+            type: history-graph
+          - entities:
+              - entity: sensor.energy_delivered_t1
+              - entity: sensor.energy_delivered_t2
+              - entity: sensor.energy_returned_t1
+              - entity: sensor.energy_returned_t2
+              - entity: sensor.gas_delivered_non_temp_converted
+            show_header_toggle: false
+            type: entities
+    panel: true
+    path: energie
+    title: Energie
+  - badges:
+      - entity: climate.vicare_heating
+      - entity: water_heater.vicare_water
+    cards:
+      - entity: climate.vicare_heating
+        name: Verwarming
+        theme: Backend-selected
+        type: thermostat
+      - entity: sensor.thermo_living_am2301_temperature
+        name: Living esp32
+        type: sensor
+      - entity: sensor.badkamer_beneden_temperature
+        name: Badkamer beneden
+        type: sensor
+      - entity: sensor.living_temperature
+        name: Living
+        type: sensor
+      - entity: sensor.keuken_temperature
+        name: Keuken
+        type: sensor
+      - entity: sensor.bureau_beneden_temperature
+        name: Bureau beneden
+        type: sensor
+    path: verwarming
+    title: Verwarming
+  - title: Kleuren
+    path: kleuren
+    theme: default
+    badges: []
+    cards:
+      - type: button
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        show_icon: true
+        show_name: true
+        entity: automation.set_theme_at_startup
+        name: Oranje
+  # - title: Power Wheel
+  #   cards:
+  #     - type: power-wheel-card
+  #       title_power: “Current Watts”
+  #       title_energy: “KWH Today”
+  #       title_money: “Energy costs/savings”
+  #       solar_power_entity: sensor.solar_power
+  #       grid_power_consumption_entity: sensor.grid_power_consumption
+  #       grid_power_production_entity: sensor.grid_power_production
