@@ -1,9 +1,9 @@
 
-resources:
+#resources:
 #  - url: /local/power-wheel-card.js?v=1
 #    type: module
-  - url: /community/power-wheel-card/power-wheel-card.js
-    type: module
+#  - url: /local/power-wheel-card.js
+#    type: module
 
 title: Huis
 views:
@@ -182,12 +182,12 @@ views:
         show_name: true
         entity: automation.set_theme_at_startup
         name: Oranje
-  - title: Power Wheel
-    cards:
-      - type: custom:power-wheel-card
-        title_power: “Current Watts”
-        title_energy: “KWH Today”
-        title_money: “Energy costs/savings”
-        solar_power_entity: sensor.solar_power
-        grid_power_consumption_entity: sensor.grid_power_consumption
-        grid_power_production_entity: sensor.grid_power_production
+  # - title: Power Wheel
+  #   cards:
+  #     - type: power-wheel-card
+  #       title_power: “Current Watts”
+  #       title_energy: “KWH Today”
+  #       title_money: “Energy costs/savings”
+  #       solar_power_entity: sensor.solar_power
+  #       grid_power_consumption_entity: sensor.grid_power_consumption
+  #       grid_power_production_entity: sensor.grid_power_production
