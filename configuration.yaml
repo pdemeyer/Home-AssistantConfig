@@ -1,0 +1,100 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+# http:
+#   base_url: example.duckdns.org:8123
+
+# Text to speech
+#tts:
+#  - platform: google_translate
+
+# group: !include groups/groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+sensor: !include_dir_merge_list sensors/
+binary_sensor: !include_dir_merge_list binary_sensors/
+group: !include_dir_merge_named groups/
+  
+input_select:
+counter:
+input_boolean:
+input_text:
+input_number:
+input_datetime:
+
+# Example configuration.yaml entry
+solaredge:
+  api_key: !secret solaredge-api_key
+  site_id: !secret solaredge-site_id
+  
+vicare:
+  username: !secret vicare-username
+  password: !secret vicare-password
+  heating_type: gas
+  
+mqtt:
+  broker: localhost
+  port: 1883
+  client_id: HassIO
+  keepalive: 60
+  username: !secret mqtt-username
+  password: !secret mqtt-password
+ 
+# Example configuration.yaml entry with single account
+tado:
+    username: !secret tado-username
+    password: !secret tado-password
+
+    # Example configuration.yaml entry for Tado
+device_tracker:
+  - platform: tado
+    username: !secret tado-username
+    password: !secret tado-password
+    home_id: !secret tado-home_id
+  
+# Example configuration.yaml entry for Google Translate TTS service
+tts:
+  - platform: google_translate
+    cache: true
+    cache_dir: /tmp/tts
+    time_memory: 300
+    service_name: google_say
+
+  
+# Enables the frontend
+frontend: !include frontend.yaml
+
+# Sun entity
+sun:
+
+# enable Lovelace YAML config (ui-lovelace.yaml)
+lovelace:
+  mode: yaml
+
+# Enables configuration UI
+config:
+
+
+# Enables support for tracking state changes over time
+history:
+
+# Checks for available updates
+updater:
+
+# Discover some devices automatically
+discovery:
+
+# System health
+system_health:
+
+# Persons
+person:
+
+homeassistant:
+  customize: !include customize.yaml
+
+

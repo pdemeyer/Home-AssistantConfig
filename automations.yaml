@@ -1,0 +1,107 @@
+- id: '1576768527164'
+  alias: Staande lamp aan op vast uur
+  description: ''
+  trigger:
+  - at: '19:30:00'
+    platform: time
+  condition: []
+  action:
+  - device_id: 2263f008f5d145c59eb736ecdaac5227
+    domain: switch
+    entity_id: switch.sonoff04
+    type: turn_on
+- id: '1576768719843'
+  alias: Staande lamp uit 's nachts
+  description: ''
+  trigger:
+  - at: '23:45:00'
+    platform: time
+  condition: []
+  action:
+  - device_id: 2263f008f5d145c59eb736ecdaac5227
+    domain: switch
+    entity_id: switch.sonoff04
+    type: turn_off
+- alias: Set theme at startup
+  trigger:
+  - platform: homeassistant
+    event: start
+  action:
+    service: frontend.set_theme
+    data:
+      name: darkorange
+  id: 67549f6aa5df4f54a00c14b3fe82d78c
+- alias: Set dark theme for the night
+  trigger:
+  - platform: time
+    at: '22:25:00'
+  action:
+  - service: frontend.set_theme
+    data:
+      name: dark
+  id: 6bd4fbd96d394f89910770dd2744a428
+- id: '1585594610763'
+  alias: Nieuwe automatisering
+  description: test
+  trigger:
+  - event: sunset
+    offset: '1:20:00'
+    platform: sun
+  condition: []
+  action:
+  - device_id: 2263f008f5d145c59eb736ecdaac5227
+    domain: switch
+    entity_id: switch.sonoff04
+    type: turn_on
+- id: '452154575135'
+  alias: Sunset test
+  trigger:
+  - event: sunset
+    offset: -0:45:00
+    platform: sun
+  action:
+  - device_id: 2263f008f5d145c59eb736ecdaac5227
+    domain: switch
+    entity_id: switch.sonoff04
+    type: turn_on
+  mode: single
+- id: '1600972481048'
+  alias: eten gereed met knop
+  description: ''
+  trigger:
+  - platform: mqtt
+    topic: RFBridge/Button4
+    payload: 'ON'
+  condition: []
+  action:
+  - service: tts.google_translate_say
+    entity_id: media_player.huiskamer
+    data:
+      message: ’Het eten is gereed!’
+      language: nl
+  mode: single
+- id: '1600972481050'
+  alias: licht boven/slinger buiten
+  description: Schakelaar licht bureau boven
+  trigger:
+  - platform: mqtt
+    topic: RFBridge/Button5
+    payload: TOGGLE
+  condition: []
+  action:
+  - type: toggle
+    device_id: d1a81cde5926472b8efaebf929d9b788
+    entity_id: switch.slinger_buiten_slinger_buiten
+    domain: switch
+  mode: single
+- id: '1600972481052'
+  alias: Licht vooraan uit 's nachts
+  description: Lampen uit
+  trigger:
+  - platform: time
+    at: 00:25:00
+  condition: []
+  action:
+  - service: scene.turn_on
+    entity_id: scene.buitenverlichting_vooraan_uit
+  mode: single

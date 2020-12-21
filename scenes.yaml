@@ -1,0 +1,98 @@
+- id: '1601382202904'
+  name: Bureaulamp aan
+  entities:
+    switch.slinger_buiten_slinger_buiten:
+      friendly_name: slinger_buiten Tasmota
+      state: 'on'
+- id: '1601382234737'
+  name: Bureaulamp uit
+  entities:
+    switch.slinger_buiten_slinger_buiten:
+      friendly_name: slinger_buiten Tasmota
+      state: 'off'
+- id: '1606511058618'
+  name: Buitenverlichting vooraan aan
+  entities:
+    light.lamp_gang:
+      friendly_name: Lamp Gang
+      supported_features: 0
+      state: 'on'
+    switch.tasmota:
+      friendly_name: Tasmota
+      state: 'on'
+    switch.tasmota2:
+      friendly_name: Tasmota2
+      state: 'on'
+  icon: hass:lightbulb
+- id: '1606511161717'
+  name: Buitenverlichting vooraan uit
+  entities:
+    switch.tasmota:
+      friendly_name: Tasmota
+      state: 'off'
+    switch.tasmota2:
+      friendly_name: Tasmota2
+      state: 'off'
+    light.lamp_gang:
+      friendly_name: Lamp Gang
+      supported_features: 0
+      state: 'off'
+  icon: hass:lightbulb
+- id: '1606513542872'
+  name: Badkamertijd voor de kindjes
+  entities:
+    climate.badkamer_beneden:
+      hvac_modes:
+      - 'off'
+      - auto
+      - heat
+      min_temp: 5
+      max_temp: 25
+      target_temp_step: 1
+      preset_modes:
+      - away
+      - home
+      current_temperature: 20.4
+      temperature: 17
+      current_humidity: 62.5
+      hvac_action: idle
+      preset_mode: home
+      friendly_name: Badkamer Beneden
+      supported_features: 17
+      state: auto
+    sensor.badkamer_beneden_early_start:
+      friendly_name: Badkamer Beneden early start
+      state: 'False'
+    sensor.badkamer_beneden_heating:
+      time: '2020-11-27T21:45:05.732Z'
+      unit_of_measurement: '%'
+      friendly_name: Badkamer Beneden heating
+      state: '0.0'
+    sensor.badkamer_beneden_humidity:
+      time: '2020-11-27T21:44:04.734Z'
+      unit_of_measurement: '%'
+      friendly_name: Badkamer Beneden humidity
+      icon: mdi:water-percent
+      state: '62.5'
+    sensor.badkamer_beneden_link:
+      friendly_name: Badkamer Beneden link
+      state: ONLINE
+    sensor.badkamer_beneden_open_window:
+      friendly_name: Badkamer Beneden open window
+      state: 'False'
+    sensor.badkamer_beneden_overlay:
+      friendly_name: Badkamer Beneden overlay
+      state: 'False'
+    sensor.badkamer_beneden_power:
+      friendly_name: Badkamer Beneden power
+      state: 'ON'
+    sensor.badkamer_beneden_tado_mode:
+      friendly_name: Badkamer Beneden tado mode
+      state: HOME
+    sensor.badkamer_beneden_temperature:
+      time: '2020-11-27T21:44:04.734Z'
+      setting: 0
+      unit_of_measurement: °C
+      friendly_name: Badkamer Beneden temperature
+      icon: mdi:thermometer
+      state: '20.42'
