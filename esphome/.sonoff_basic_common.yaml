@@ -1,6 +1,6 @@
 # Basic Config
 esphome:
-  name: son01
+  name: ${devicename}
   platform: ESP8266
   board: esp8285
 
@@ -10,7 +10,7 @@ wifi:
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: "Son01 Fallback Hotspot"
+    ssid: "${upper_devicename} Fallback Hotspot"
     password: "mjxKL4JD1EW9"
 
 captive_portal:
