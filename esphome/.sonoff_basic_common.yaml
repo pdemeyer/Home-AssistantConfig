@@ -61,4 +61,25 @@ switch:
       number: GPIO13
       inverted: True
 
+sensor:
+  - platform: wifi_signal
+    name: ${devicename} Wifi Signal
+    update_interval: 30s
+  - platform: uptime
+    name: ${devicename} Uptime
+    update_interval: 120s
 
+text_sensor:
+  - platform: version
+    name: ${devicename} version
+  - platform: wifi_info
+    ip_address:
+      name: ${devicename} IP Address
+    ssid:
+      name: ${devicename} Connected SSID
+    bssid:
+      name: ${devicename} Connected BSSID
+    mac_address:
+      name: ${devicename} Mac Wifi Address
+    scan_results:
+      name: ${devicename} Latest Scan Results
