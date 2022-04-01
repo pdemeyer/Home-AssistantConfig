@@ -1,6 +1,6 @@
 # Basic Config
 esphome:
-  name: son01
+  name: ${devicename}
   platform: ESP8266
   board: esp8285
 
@@ -10,7 +10,7 @@ wifi:
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: "Son01 Fallback Hotspot"
+    ssid: "${upper_devicename} Fallback Hotspot"
     password: "mjxKL4JD1EW9"
 
 captive_portal:
@@ -60,5 +60,30 @@ switch:
     pin:
       number: GPIO13
       inverted: True
+  - platform: shutdown
+    name: "${devicename}_shutdown"
+  - platform: restart
+    name: "${devicename}_restart"
 
+sensor:
+  - platform: wifi_signal
+    name: "${devicename}_wifi_signal"
+    update_interval: 30s
+  - platform: uptime
+    name: "${devicename}_uptime"
+    update_interval: 120s
 
+text_sensor:
+  - platform: version
+    name: "${devicename}_version"
+  - platform: wifi_info
+    ip_address:
+      name: ${devicename} IP Address
+    ssid:
+      name: ${devicename} Connected SSID
+    bssid:
+      name: ${devicename} Connected BSSID
+    mac_address:
+      name: ${devicename} Mac Wifi Address
+    scan_results:
+      name: ${devicename} Latest Scan Results
