@@ -23,6 +23,13 @@ ota:
 # Enable Web server
 web_server:
   port: 80
+  
+
+  
+# Sync time with Home Assistant.
+time:
+  - platform: homeassistant
+    id: homeassistant_time
 
 # Device Specific Config
 binary_sensor:
