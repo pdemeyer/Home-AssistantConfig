@@ -11,3 +11,4 @@ Integrates with:
 - Viessmann gas heater
 - Solaredge Solar panels
 - custom made MQTT/433MHz/Zigbee devices (weather station etc)
+- ...
