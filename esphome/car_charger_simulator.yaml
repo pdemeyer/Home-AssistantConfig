@@ -1,0 +1,44 @@
+esphome:
+  name: car_charger_simulator
+  platform: ESP8266
+  board: nodemcuv2
+
+wifi:
+  ssid: !secret wifi-ssid
+  password: !secret wifi-password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Car Charger Simulator"
+    password: "dHQmS3Uq9ZtO"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+web_server:
+  port: 80
+  
+ota:
+
+text_sensor:
+  - platform: homeassistant
+    entity_id: input_text.charger_charging_percentage
+    name: "Charging Percentage"
+    id: charge_pct
+    icon: "mdi:battery-charging-30"
+    
+switch:
+  - platform: gpio
+    pin: GPIO14
+    name: "LED 1"
+    id: led_een
+
+  - platform: gpio
+    pin: GPIO15
+    name: "LED 2"
+    id: led_twee

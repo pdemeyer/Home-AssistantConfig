@@ -1,0 +1,31 @@
+esphome:
+  name: pot_meter_vb
+  platform: ESP8266
+  board: nodemcuv2
+
+wifi:
+  ssid: !secret wifi-ssid
+  password: !secret wifi-password
+
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Pot Meter Vb Fallback Hotspot"
+    password: "3KZ7BEszNOcT"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+# Example configuration entry
+sensor:
+  - platform: adc
+    pin: A0
+    name: "1ste pot meter(zon)"
+    update_interval: 1s

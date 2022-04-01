@@ -1,0 +1,173 @@
+esphome:
+  name: smart_meter_simulator
+  platform: ESP8266
+  board: nodemcuv2
+
+wifi:
+  ssid: !secret wifi-ssid
+  password: !secret wifi-password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Smart Meter Simulator"
+    password: "d8M2IvwnS15G"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+# Enable Web server.
+web_server:
+  port: 80
+  
+# Global to store the on/off state of the chime
+globals:
+  - id: current_consumption
+    type: int
+    restore_value: false
+    initial_value: '0'
+  - id: current_production
+    type: int
+    restore_value: false
+    initial_value: '0'
+    
+http_request:
+  useragent: esphome/device
+  timeout: 10s    
+  
+# Example configuration entry
+sensor:
+  - platform: rotary_encoder
+    name: "Energy Consumption"
+    id: re_energy_consumption
+    pin_a: D1
+    pin_b: D2
+    min_value: 0
+    max_value: 60
+    on_clockwise:
+      - lambda: |-
+          if (id(current_consumption) < 7000)
+            id(current_consumption) += 100;
+          else
+            id(current_consumption) = 6000;
+    on_anticlockwise:
+      - lambda: |-
+          if(id(current_consumption) >= 100)
+            id(current_consumption) -= 100;
+          else
+            id(current_consumption) = 0;
+#    unit_of_measurement: Wh
+  - platform: rotary_encoder
+    name: "Energy Production"
+    id: re_energy_production
+    pin_a: D3
+    pin_b: D4
+    min_value: 0
+    max_value: 40
+    on_clockwise:
+      - lambda: |-
+          if (id(current_production) < 4000)
+            id(current_production) += 100;
+          else
+            id(current_production) = 4000;
+    on_anticlockwise:
+      - lambda: |-
+          if(id(current_production) >= 100)
+            id(current_production) -= 100;
+          else
+            id(current_production) = 0;
+    
+  - platform: template
+    name: "Actual Energy Consumption"
+    unit_of_measurement: Wh
+    on_value:
+      then:
+        - if:
+            condition:
+              lambda: 'return (id(current_production) - id(current_consumption)) >= 800;'
+            then:
+              - http_request.post: http://car_charger_simulator.local/switch/led_2/turn_on
+              - http_request.post: http://car_charger_simulator.local/switch/led_1/turn_on
+        - if:
+            condition:
+              lambda: 'return ((id(current_production) - id(current_consumption)) < 800 and (id(current_production) - id(current_consumption)) >= 400);'
+            then:
+              - http_request.post: http://car_charger_simulator.local/switch/led_2/turn_off 
+              - http_request.post: http://car_charger_simulator.local/switch/led_1/turn_on
+        - if:
+            condition:
+              lambda: 'return (id(current_production) - id(current_consumption)) < 400;'
+            then:
+              - http_request.post: http://car_charger_simulator.local/switch/led_2/turn_off 
+              - http_request.post: http://car_charger_simulator.local/switch/led_1/turn_off
+    lambda: |-
+      return id(current_consumption);
+    update_interval: 1s
+  - platform: template
+    name: "Actual Energy Production"
+    unit_of_measurement: Wh
+    on_value:
+      then:
+        - if:
+            condition:
+              lambda: 'return (id(current_production) - id(current_consumption)) >= 800;'
+            then:
+              - http_request.post: http://car_charger_simulator.local/switch/led_2/turn_on
+              - http_request.post: http://car_charger_simulator.local/switch/led_1/turn_on
+        - if:
+            condition:
+              lambda: 'return ((id(current_production) - id(current_consumption)) < 800 and (id(current_production) - id(current_consumption)) >= 400);'
+            then:
+              - http_request.post: http://car_charger_simulator.local/switch/led_2/turn_off 
+              - http_request.post: http://car_charger_simulator.local/switch/led_1/turn_on
+        - if:
+            condition:
+              lambda: 'return (id(current_production) - id(current_consumption)) < 400;'
+            then:
+              - http_request.post: http://car_charger_simulator.local/switch/led_2/turn_off 
+              - http_request.post: http://car_charger_simulator.local/switch/led_1/turn_off
+    lambda: |-
+      return id(current_production);
+    update_interval: 1s
+    
+  - platform: template
+    name: "Actual Grid Energy Consumption"
+    unit_of_measurement: Wh
+    lambda: |-
+      if (id(current_consumption) > id(current_production))
+        return id(current_consumption) - id(current_production);
+      else
+        return 0;
+    update_interval: 1s
+  - platform: template
+    name: "Actual Grid Energy Injection"
+    unit_of_measurement: Wh
+    lambda: |-
+      if (id(current_production) > id(current_consumption))
+        return id(current_production) - id(current_consumption);
+      else
+        return 0;
+    update_interval: 1s
+    
+    
+switch:
+  - platform: template
+    id: reset
+    name: "Reset Smart Meter Values"
+    turn_on_action:
+      - lambda: |-
+          id(current_production) = 0;
+          id(current_consumption) = 0;
+      - sensor.rotary_encoder.set_value:
+          id: re_energy_production
+          value: 0
+      - sensor.rotary_encoder.set_value:
+          id: re_energy_consumption
+          value: 0
+      - switch.turn_off: reset
