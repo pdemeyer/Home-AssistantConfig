@@ -69,10 +69,10 @@ switch:
 
 sensor:
   - platform: wifi_signal
-    name: "${devicename}_wifi_signal"
+    name: ${devicename} Wfi Signal
     update_interval: 30s
   - platform: uptime
-    name: "${devicename}_uptime"
+    name: ${devicename} Uptime
     update_interval: 120s
 
 status_led:
