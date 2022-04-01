@@ -1,6 +1,6 @@
 ---
 substitutions:
-  device_name: slimmelezer
+  device_name: smart-meter-reader
   device_description: "DIY P1 module to read your smart meter"
     
 esphome:
