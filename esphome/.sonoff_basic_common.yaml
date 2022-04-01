@@ -47,7 +47,7 @@ binary_sensor:
 switch:
   # The relay switches on the red side of the LED when active.
   - platform: gpio
-    name: "Sonoff Basic Relay"
+    name: "${devicename} Basic Relay"
     pin: GPIO12
     id: relay
     on_turn_off:
