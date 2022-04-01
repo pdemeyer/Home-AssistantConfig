@@ -1,5 +1,5 @@
 substitutions:
-  devicename: son01
-  upper_devicename: SON01
+  devicename: son03
+  upper_devicename: SON03
 
 <<: !include .sonoff_basic_common.yaml

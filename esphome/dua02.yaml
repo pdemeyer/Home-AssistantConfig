@@ -1,0 +1,5 @@
+substitutions:
+  devicename: dua02
+  upper_devicename: DUA02
+
+<<: !include .sonoff_dual_common.yaml
