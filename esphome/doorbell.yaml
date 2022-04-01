@@ -7,8 +7,8 @@
   # WiFi connection, correct these
   # with values for your WiFi.
   wifi:
-    ssid: !secret wifi-ssid
-    password: !secret wifi-password
+    ssid: !secret wifi_ssid
+    password: !secret wifi_password
   
   # Enable logging.
   logger:
