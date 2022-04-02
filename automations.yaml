@@ -79,9 +79,10 @@
     domain: switch
     entity_id: switch.son04_basic_relay
     type: turn_on
-  - domain: switch
-    entity_id: switch.son01_basic_relay
-    type: turn_on
+  - type: turn_on
+    device_id: 907b16830ce10cd178868b59545c1b1f
+    entity_id: switch.sonoff_basic_relay
+    domain: switch
   mode: single
 - id: '1600972481048'
   alias: eten gereed met knop
