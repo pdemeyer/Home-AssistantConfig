@@ -30,6 +30,7 @@ solaredge:
 vicare:
   username: !secret vicare-username
   password: !secret vicare-password
+  client_id: !secret vicare-client-id
   heating_type: gas
   
 mqtt:
