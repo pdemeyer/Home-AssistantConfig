@@ -8,7 +8,11 @@
   action:
   - device_id: 2263f008f5d145c59eb736ecdaac5227
     domain: switch
-    entity_id: switch.sonoff04
+    entity_id: switch.son04_basic_relay
+    type: turn_on
+  - device_id: 2263f008f5d145c59eb736ecdaac5227
+    domain: switch
+    entity_id: switch.son01_basic_relay
     type: turn_on
 - id: '1576768719843'
   alias: Staande lamp uit 's nachts
@@ -18,10 +22,21 @@
     platform: time
   condition: []
   action:
-  - type: turn_off
-    device_id: 11a6e8a2b1c819d73def047016354925
-    entity_id: light.son04_light
-    domain: light
+  - device_id: 2263f008f5d145c59eb736ecdaac5227
+    domain: switch
+    entity_id: switch.son04_basic_relay
+    type: turn_off
+- id: '1576768719844'
+  alias: Staande lamp kamer uit 's nachts
+  description: ''
+  trigger:
+  - at: '22:30:00'
+    platform: time
+  condition: []
+  action:
+  - domain: switch
+    entity_id: switch.son01_basic_relay
+    type: turn_off
 - alias: Set theme at startup
   trigger:
   - platform: homeassistant
@@ -51,10 +66,10 @@
   action:
   - device_id: 2263f008f5d145c59eb736ecdaac5227
     domain: switch
-    entity_id: switch.sonoff04
+    entity_id: switch.son04_basic_relay
     type: turn_on
 - id: '452154575135'
-  alias: Sunset test
+  alias: Staande lampen aan voor zonsondergang
   trigger:
   - event: sunset
     offset: -0:45:00
@@ -62,7 +77,10 @@
   action:
   - device_id: 2263f008f5d145c59eb736ecdaac5227
     domain: switch
-    entity_id: switch.sonoff04
+    entity_id: switch.son04_basic_relay
+    type: turn_on
+  - domain: switch
+    entity_id: switch.son01_basic_relay
     type: turn_on
   mode: single
 - id: '1600972481048'
