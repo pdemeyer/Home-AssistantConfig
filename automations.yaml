@@ -18,10 +18,10 @@
     platform: time
   condition: []
   action:
-  - device_id: 2263f008f5d145c59eb736ecdaac5227
-    domain: switch
-    entity_id: switch.sonoff04
-    type: turn_off
+  - type: turn_off
+    device_id: 11a6e8a2b1c819d73def047016354925
+    entity_id: light.son04_light
+    domain: light
 - alias: Set theme at startup
   trigger:
   - platform: homeassistant
