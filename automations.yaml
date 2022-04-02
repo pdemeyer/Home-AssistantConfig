@@ -134,3 +134,16 @@
   - service: scene.turn_on
     entity_id: scene.buitenverlichting_vooraan_uit
   mode: single
+- id: '1648930138993'
+  alias: Staande lamp slaapkamer uit 's avonds
+  description: ''
+  trigger:
+  - platform: time
+    at: '22:30:00'
+  condition: []
+  action:
+  - type: turn_off
+    device_id: 907b16830ce10cd178868b59545c1b1f
+    entity_id: switch.sonoff_basic_relay
+    domain: switch
+  mode: single
