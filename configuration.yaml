@@ -48,10 +48,10 @@ tado:
     
 # Example configuration.yaml entry
 # Example configuration.yaml entry
-sensor:
-  - platform: solaredge_local
-    name: SolarEdge
-    ip_address: 192.168.0.162
+#sensor:
+#  - platform: solaredge_local
+#    name: SolarEdge
+#    ip_address: 192.168.0.162
 
     # Example configuration.yaml entry for Tado
 device_tracker:
