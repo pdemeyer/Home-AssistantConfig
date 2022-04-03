@@ -7,6 +7,9 @@
 !*.md
 !esphome
 !groups
+!sensors
+!binary_sensors
+!blueprints
 !themes
 
 # Ignore folders.
