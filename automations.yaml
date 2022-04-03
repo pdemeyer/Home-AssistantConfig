@@ -130,7 +130,7 @@
     entity_id: switch.sonoff_basic_relay
     domain: switch
   mode: single
-- id: '1600972481052'
+- id: '160097248104252'
   alias: Licht buiten uit 's nachts
   description: Lampen uit
   trigger:
