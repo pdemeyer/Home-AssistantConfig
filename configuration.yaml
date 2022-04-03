@@ -33,13 +33,13 @@ vicare:
   client_id: !secret vicare-client-id
   heating_type: gas
   
-mqtt:
-  broker: localhost
-  port: 1883
-  client_id: HassIO
-  keepalive: 60
-  username: !secret mqtt-username
-  password: !secret mqtt-password
+#mqtt:
+#  broker: localhost
+#  port: 1883
+#  client_id: HassIO
+#  keepalive: 60
+#  username: !secret mqtt-username
+#  password: !secret mqtt-password
  
 # Example configuration.yaml entry with single account
 tado:
@@ -70,7 +70,7 @@ tts:
 
   
 # Enables the frontend
-frontend: !include frontend.yaml
+#frontend: !include frontend.yaml
 
 # Sun entity
 sun:
