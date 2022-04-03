@@ -37,24 +37,6 @@
   - domain: switch
     entity_id: switch.son01_basic_relay
     type: turn_off
-- alias: Set theme at startup
-  trigger:
-  - platform: homeassistant
-    event: start
-  action:
-    service: frontend.set_theme
-    data:
-      name: darkorange
-  id: 67549f6aa5df4f54a00c14b3fe82d78c
-- alias: Set dark theme for the night
-  trigger:
-  - platform: time
-    at: '22:25:00'
-  action:
-  - service: frontend.set_theme
-    data:
-      name: dark
-  id: 6bd4fbd96d394f89910770dd2744a428
 - id: '1585594610763'
   alias: Nieuwe automatisering
   description: test
