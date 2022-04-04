@@ -67,11 +67,12 @@
       name: Doorbell Restart
   
     # Switch to turn on/off the chime.
+    # Connected to GPIO on the ESP-8266 #D4
     - platform: gpio
       id: relay
       inverted: true
       name: Doorbell Chime
-      pin: GPIO0
+      pin: GPIO2
   
     # Switch to turn on/off chime when
     # doorbell button is pushed.
@@ -100,8 +101,8 @@
       id: button
       name: Doorbell Button
       pin:
-        # Connected to GPIO on the ESP-01S.
-        number: GPIO2
+        # Connected to GPIO on the ESP-8266 #D1
+        number: GPIO5
         mode: INPUT_PULLUP
         inverted: true
       filters:
