@@ -94,6 +94,26 @@
       lambda: |-
         return id(chime);
   
+    # Switch to turn on/off chime when
+    # doorbell button is pushed.
+    #
+    # It creates a "virtual" switch based
+    # on a global variable.
+    - platform: template
+      name: Doorbell Remote Button
+      id: doorbell_remote
+      restore_state: false
+      turn_on_action:
+        - globals.set:
+            id: button
+            value: 'true'
+      turn_off_action:
+        - globals.set:
+            id: button
+            value: 'false'
+      lambda: |-
+        return id(button);
+  
   # Binary sensor representing the
   # Doorbell button push.
   binary_sensor:
