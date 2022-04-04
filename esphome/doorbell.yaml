@@ -58,7 +58,7 @@
     - id: chime
       type: bool
       restore_value: true
-      initial_value: 'true'
+      initial_value: 'false'
   
   # Exposed switches.
   switch:
