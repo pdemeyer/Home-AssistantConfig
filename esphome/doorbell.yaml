@@ -104,13 +104,9 @@
       id: doorbell_remote
       restore_state: false
       turn_on_action:
-        - globals.set:
-            id: button
-            value: 'true'
+        - switch.turn_on: button
       turn_off_action:
-        - globals.set:
-            id: button
-            value: 'false'
+        - switch.turn_off: button
       lambda: |-
         return id(button);
   
