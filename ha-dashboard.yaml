@@ -1,4 +1,4 @@
-title: Huis
+title: Updated Huis
 views:
   - badges:
       - entity: sensor.thermo_living_am2301_temperature
