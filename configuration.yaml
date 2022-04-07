@@ -81,6 +81,12 @@ lovelace:
       icon: mdi:monitor-dashboard
       show_in_sidebar: true
       filename: ha-dashboard.yaml
+    tablet-ui:
+      mode: yaml
+      title: Dashboard
+      icon: mdi:monitor-dashboard
+      show_in_sidebar: true
+      filename: tablet-ui.yaml
 
 # Enables configuration UI
 config:
