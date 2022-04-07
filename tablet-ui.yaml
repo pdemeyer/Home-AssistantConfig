@@ -149,14 +149,20 @@ views:
                 icon: mdi:delete-empty
                 name: Rest
               - entity: sensor.recycleapp_gft
-                icon: mdi:delete-empty
+                icon: mdi:fruit-citrus
                 name: GFT
               - entity: sensor.recycleapp_papier
                 icon: mdi:newspaper-variant
                 name: Papier/Karton
               - entity: sensor.recycleapp_grofvuil
                 name: Grof
-                icon: mdi:human-female
+                icon: mdi:washing-machine
+              - entity: sensor.recycleapp_textiel
+                name: Textiel
+                icon: mdi:tshirt-crew-outline
+              - entity: sensor.recycleapp_takken
+                name: Snoeihout
+                icon: mdi:tree-outline
           - type: custom:weather-card
             entity: weather.home
             number_of_forecasts: '5'
