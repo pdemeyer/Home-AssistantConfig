@@ -1,0 +1,24 @@
+  mode: yaml
+  # Add yaml dashboards
+  dashboards:
+    ha-dashboard:
+      mode: yaml
+      title: Dashboard
+      icon: mdi:monitor-dashboard
+      show_in_sidebar: true
+      filename: ha-dashboard.yaml
+    tablet-ui:
+      mode: yaml
+      title: Dashboard
+      icon: mdi:monitor-dashboard
+      show_in_sidebar: true
+      filename: tablet-ui.yaml
+  resources:
+    - url: /hacsfiles/weather-card/weather-card.js
+      type: module
+    - url: /hacsfiles/kiosk-mode/kiosk-mode.js
+      type: module
+    - url: /hacsfiles/lovelace-layout-card/layout-card.js
+      type: module
+    - url: /hacsfiles/grid-layout/grid-layout.js
+      type: module
