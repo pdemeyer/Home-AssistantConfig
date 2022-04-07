@@ -8,7 +8,7 @@
       postcode: 1745   
       streetname: Grootveld
       streetnumber: 42                  
-      suffix:                        
+      suffix: ''                       
       upcomingsensor: 0                
       dateformat: '%d-%m-%Y'           
       dateonly: 0                      
