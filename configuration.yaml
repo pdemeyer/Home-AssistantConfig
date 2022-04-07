@@ -73,6 +73,14 @@ sun:
 # enable Lovelace YAML config (ui-lovelace.yaml)
 lovelace:
   mode: yaml
+  # Add yaml dashboards
+  dashboards:
+    ha-dashboard:
+      mode: yaml
+      title: Dashboard
+      icon: mdi:monitor-dashboard
+      show_in_sidebar: true
+      filename: ha-dashboard.yaml
 
 # Enables configuration UI
 config:
