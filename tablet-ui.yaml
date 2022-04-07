@@ -188,24 +188,6 @@ views:
                 color: rgba(10, 10, 10, 0.4)
                 icon: mdi:lightbulb-on
                 name: Verlichting
-          - type: horizontal-stack
-            cards:
-              - type: custom:button-card
-                color_type: card
-                color: rgba(10, 10, 10, 0.4)
-                entity: input_boolean.stofzuiger_quick
-                icon: mdi:robot-vacuum
-                name: Gaston
-                state:
-                  - value: 'off'
-                    color: rgba(10, 10, 10, 0.4)
-                  - value: 'on'
-                    color: auto
-              - type: custom:button-card
-                color_type: card
-                color: rgba(10, 10, 10, 0.4)
-                icon: mdi:robot-mower
-                name: Jeanine
       - type: vertical-stack
         cards:
           - type: custom:button-card
