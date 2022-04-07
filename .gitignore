@@ -11,6 +11,7 @@
 !binary_sensors
 !blueprints
 !themes
+!zenders
 
 # Ignore folders.
 .storage
