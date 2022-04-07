@@ -142,16 +142,19 @@ views:
             animation: slide
           - type: entities
             entities:
-              - entity: sensor.recycleapp_afval_pmd
+              - entity: sensor.recycleapp_pmd
                 name: PMD
                 icon: mdi:bottle-soda-classic
-              - entity: sensor.recycleapp_afval_restafval
+              - entity: sensor.recycleapp_restafval
                 icon: mdi:delete-empty
                 name: Rest
-              - entity: sensor.recycleapp_afval_papier
+              - entity: sensor.recycleapp_gft
+                icon: mdi:delete-empty
+                name: GFT
+              - entity: sensor.recycleapp_papier
                 icon: mdi:newspaper-variant
                 name: Papier/Karton
-              - entity: sensor.recycleapp_afval_grofvuil
+              - entity: sensor.recycleapp_grofvuil
                 name: Grof
                 icon: mdi:human-female
           - type: custom:weather-card
