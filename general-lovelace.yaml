@@ -29,4 +29,4 @@
     - url: /hacsfiles/power-distribution-card/power-distribution-card.js
       type: module
     - url: '/local/zenders/radio1.png'
-      type: image
+      type: html
