@@ -1,17 +1,17 @@
-- id: '1576768527164'
-  alias: Staande lamp aan op vast uur
-  description: 'tettn'
-  trigger:
-  - at: '19:30:00'
-    platform: time
-  condition: []
-  action:
-  - domain: switch
-    entity_id: switch.son04_basic_relay
-    type: turn_on
-  - domain: switch
-    entity_id: switch.son01_basic_relay
-    type: turn_on
+#- id: '1576768527164'
+#  alias: Staande lamp aan op vast uur
+#  description: 'tettn'
+#  trigger:
+#  - at: '19:30:00'
+#    platform: time
+#  condition: []
+#  action:
+#  - domain: switch
+#    entity_id: switch.son04_basic_relay
+#    type: turn_on
+#  - domain: switch
+#    entity_id: switch.son01_basic_relay
+#    type: turn_on
 - id: '1576768719843'
   alias: Staande lamp uit 's nachts
   description: ''
@@ -34,18 +34,18 @@
   - domain: switch
     entity_id: switch.son01_basic_relay
     type: turn_off
-- id: '1585594610763'
-  alias: Nieuwe automatisering
-  description: test
-  trigger:
-  - event: sunset
-    offset: '1:20:00'
-    platform: sun
-  condition: []
-  action:
-  - domain: switch
-    entity_id: switch.son04_basic_relay
-    type: turn_on
+#- id: '1585594610763'
+#  alias: Nieuwe automatisering
+#  description: test
+#  trigger:
+#  - event: sunset
+#    offset: '1:20:00'
+#    platform: sun
+#  condition: []
+#  action:
+#  - domain: switch
+#    entity_id: switch.son04_basic_relay
+#    type: turn_on
 - id: '452154575135'
   alias: Staande lampen aan voor zonsondergang
   trigger:
@@ -60,28 +60,28 @@
     entity_id: switch.sonoff_basic_relay
     domain: switch
   mode: single
-- id: '1600972481052'
-  alias: Licht vooraan uit 's nachts
-  description: Lampen uit
-  trigger:
-  - platform: time
-    at: 00:25:00
-  condition: []
-  action:
-  - service: scene.turn_on
-    entity_id: scene.buitenverlichting_vooraan_uit
-  mode: single
-- id: '1600972481053'
-  alias: Kerstverlichting 's ochtends aan
-  description: Kerstlampjes aan
-  trigger:
-  - platform: time
-    at: 06:30:00
-  condition: []
-  action:
-  - service: scene.turn_on
-    entity_id: scene.buitenverlichting_vooraan_uit
-  mode: single
+#- id: '1600972481052'
+#  alias: Licht vooraan uit 's nachts
+#  description: Lampen uit
+#  trigger:
+#  - platform: time
+#    at: 00:25:00
+#  condition: []
+#  action:
+#  - service: scene.turn_on
+#    entity_id: scene.buitenverlichting_vooraan_uit
+#  mode: single
+#- id: '1600972481053'
+#  alias: Kerstverlichting 's ochtends aan
+#  description: Kerstlampjes aan
+#  trigger:
+#  - platform: time
+#    at: 06:30:00
+#  condition: []
+#  action:
+#  - service: scene.turn_on
+#    entity_id: scene.buitenverlichting_vooraan_uit
+#  mode: single
 - id: '1648930138993'
   alias: Staande lamp slaapkamer uit 's avonds
   description: ''
@@ -94,27 +94,24 @@
     entity_id: switch.sonoff_basic_relay
     domain: switch
   mode: single
-- id: '160097248104252'
-  alias: Licht buiten uit 's nachts
-  description: Lampen uit
-  trigger:
-  - platform: time
-    at: 00:15
-  condition: []
-  action:
-  - type: turn_off
-    device_id: 302ebd037b7cdb3907b473d3b1002c8d
-    entity_id: light.lamp_buiten_vooraan
-    domain: light
-  - type: turn_off
-    device_id: f4f4f52550b1c03e553f6778f7ce0ef5
-    entity_id: light.lamp_buiten_zijkant_geert
-    domain: light
-  - type: turn_off
-    device_id: 347ac98c018a9f5d03fc82c288bcdee7
-    entity_id: light.lamp_buiten_zijkant_rik
-    domain: light
-  mode: single
+#- id: '160097248104252'
+#  alias: Licht buiten uit 's nachts
+#  description: Lampen uit
+#  trigger:
+#  - platform: time
+#    at: 00:15
+#  condition: []
+#  action:
+#  - type: turn_off
+#    entity_id: light.lamp_buiten_vooraan
+#    domain: light
+#  - type: turn_off
+#    entity_id: light.lamp_buiten_zijkant_geert
+#    domain: light
+#  - type: turn_off
+#    entity_id: light.lamp_buiten_zijkant_rik
+#    domain: light
+#  mode: single
 - id: '1610445960713'
   alias: Notification to phone when doorbell rings
   description: ''
@@ -131,48 +128,45 @@
       message: Berichtje sturen want de bel doet het niet!
       title: Deurbel
   mode: single
-- id: '1635879853882'
-  alias: Zone Notification
-  description: ''
-  use_blueprint:
-    path: homeassistant/notify_leaving_zone.yaml
-    input:
-      person_entity: person.pauwel_demeyer
-      zone_entity: zone.home
-      notify_device: ce18e4d207424af0a9f902df08fc3e9e
-- id: '1636670094751'
-  alias: Notification to phone when laundry is done
-  description: wasmachine waarschijnlijk klaar
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.washing_machine
-    from: '1'
-    to: '0'
-  condition: []
-  action:
-  - service: notify.notify
-    data:
-      message: Wasmachine is klaar!
-      title: Wasmachine
-  mode: single
-- id: '1636670496408'
-  alias: Licht buiten aan 's avonds
-  description: Lampen aan
-  trigger:
-  - platform: time
-    at: '19:00'
-  condition: []
-  action:
-  - type: turn_on
-    device_id: 302ebd037b7cdb3907b473d3b1002c8d
-    entity_id: light.lamp_buiten_vooraan
-    domain: light
-  - type: turn_on
-    device_id: f4f4f52550b1c03e553f6778f7ce0ef5
-    entity_id: light.lamp_buiten_zijkant_geert
-    domain: light
-  - type: turn_on
-    device_id: 347ac98c018a9f5d03fc82c288bcdee7
-    entity_id: light.lamp_buiten_zijkant_rik
-    domain: light
-  mode: single
+#- id: '1635879853882'
+#  alias: Zone Notification
+#  description: ''
+#  use_blueprint:
+#    path: homeassistant/notify_leaving_zone.yaml
+#    input:
+#      person_entity: person.pauwel_demeyer
+#      zone_entity: zone.home
+#      notify_device: ce18e4d207424af0a9f902df08fc3e9e
+#- id: '1636670094751'
+#  alias: Notification to phone when laundry is done
+#  description: wasmachine waarschijnlijk klaar
+#  trigger:
+#  - platform: state
+#    entity_id: binary_sensor.washing_machine
+#    from: '1'
+#    to: '0'
+#  condition: []
+#  action:
+#  - service: notify.notify
+#    data:
+#      message: Wasmachine is klaar!
+#      title: Wasmachine
+#  mode: single
+#- id: '1636670496408'
+#  alias: Licht buiten aan 's avonds
+#  description: Lampen aan
+#  trigger:
+#  - platform: time
+#    at: '19:00'
+#  condition: []
+#  action:
+#  - type: turn_on
+#    entity_id: light.lamp_buiten_vooraan
+#    domain: light
+#  - type: turn_on
+#    entity_id: light.lamp_buiten_zijkant_geert
+#    domain: light
+#  - type: turn_on
+#    entity_id: light.lamp_buiten_zijkant_rik
+#    domain: light
+#  mode: single
