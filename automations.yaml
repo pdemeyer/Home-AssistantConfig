@@ -66,35 +66,6 @@
     entity_id: switch.sonoff_basic_relay
     domain: switch
   mode: single
-- id: '1600972481048'
-  alias: eten gereed met knop
-  description: ''
-  trigger:
-  - platform: mqtt
-    topic: RFBridge/Button4
-    payload: 'ON'
-  condition: []
-  action:
-  - service: tts.google_translate_say
-    entity_id: media_player.huiskamer
-    data:
-      message: ’Het eten is gereed!’
-      language: nl
-  mode: single
-- id: '1600972481050'
-  alias: licht boven/slinger buiten
-  description: Schakelaar licht bureau boven
-  trigger:
-  - platform: mqtt
-    topic: RFBridge/Button5
-    payload: TOGGLE
-  condition: []
-  action:
-  - type: toggle
-    device_id: d1a81cde5926472b8efaebf929d9b788
-    entity_id: switch.slinger_buiten_slinger_buiten
-    domain: switch
-  mode: single
 - id: '1600972481052'
   alias: Licht vooraan uit 's nachts
   description: Lampen uit
