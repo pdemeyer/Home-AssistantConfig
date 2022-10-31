@@ -23,18 +23,18 @@
   - domain: switch
     entity_id: switch.son04_basic_relay
     type: turn_off
-- id: '1576768719844'
-  alias: Staande lamp kamer uit 's nachts
-  description: ''
-  trigger:
-  - at: '22:30:00'
-    platform: time
-  condition: []
-  action:
-  - domain: switch
-    device_id: a4ce8316835daf73e2fb32b6babbdd2c
-    entity_id: switch.son01_basic_relay
-    type: turn_off
+#- id: '1576768719844'
+#  alias: Staande lamp kamer uit 's nachts
+#  description: ''
+#  trigger:
+#  - at: '22:30:00'
+#    platform: time
+#  condition: []
+#  action:
+#  - domain: switch
+#    device_id: a4ce8316835daf73e2fb32b6babbdd2c
+#    entity_id: switch.son01_basic_relay
+#    type: turn_off
 #- id: '1585594610763'
 #  alias: Nieuwe automatisering
 #  description: test
