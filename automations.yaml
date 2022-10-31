@@ -1,12 +1,12 @@
 - id: '1576768527164'
   alias: Staande lamp aan op vast uur
-  description: ''
+  description: 'tettn'
   trigger:
   - at: '19:30:00'
     platform: time
   condition: []
   action:
-  - device_id: 2263f008f5d145c59eb736ecdaac5227
+  - device_id: 2263f008f5d145c59eb736ecdaac5224
     domain: switch
     entity_id: switch.son04_basic_relay
     type: turn_on
