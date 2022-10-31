@@ -6,12 +6,10 @@
     platform: time
   condition: []
   action:
-  - device_id: 2263f008f5d145c59eb736ecdaac5224
-    domain: switch
+  - domain: switch
     entity_id: switch.son04_basic_relay
     type: turn_on
-  - device_id: 2263f008f5d145c59eb736ecdaac5227
-    domain: switch
+  - domain: switch
     entity_id: switch.son01_basic_relay
     type: turn_on
 - id: '1576768719843'
@@ -22,8 +20,7 @@
     platform: time
   condition: []
   action:
-  - device_id: 2263f008f5d145c59eb736ecdaac5227
-    domain: switch
+  - domain: switch
     entity_id: switch.son04_basic_relay
     type: turn_off
 - id: '1576768719844'
@@ -46,8 +43,7 @@
     platform: sun
   condition: []
   action:
-  - device_id: 2263f008f5d145c59eb736ecdaac5227
-    domain: switch
+  - domain: switch
     entity_id: switch.son04_basic_relay
     type: turn_on
 - id: '452154575135'
@@ -57,12 +53,10 @@
     offset: -0:45:00
     platform: sun
   action:
-  - device_id: 2263f008f5d145c59eb736ecdaac5227
-    domain: switch
+  - domain: switch
     entity_id: switch.son04_basic_relay
     type: turn_on
   - type: turn_on
-    device_id: 907b16830ce10cd178868b59545c1b1f
     entity_id: switch.sonoff_basic_relay
     domain: switch
   mode: single
@@ -97,7 +91,6 @@
   condition: []
   action:
   - type: turn_off
-    device_id: 907b16830ce10cd178868b59545c1b1f
     entity_id: switch.sonoff_basic_relay
     domain: switch
   mode: single
