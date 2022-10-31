@@ -17,9 +17,9 @@ input_text:
 input_number:
 input_datetime:
 
-solaredge:
-  api_key: !secret solaredge-api_key
-  site_id: !secret solaredge-site_id
+#solaredge:
+#  api_key: !secret solaredge-api_key
+#  site_id: !secret solaredge-site_id
   
 vicare:
   username: !secret vicare-username
